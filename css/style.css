@@ -1,20 +1,78 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 * {
   margin: 0;
   padding: 0; }
 
-h1, h2 {
+h1 {
+  color: #E8C07D;
   text-align: center; }
 
-main {
-  background-color: #5aced6; }
-
-div {
-  margin: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center; }
+h2 {
+  text-align: center; }
 
 img {
-  width: 200px; }
+  width: 50px; }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  color: white; }
+  .nav img {
+    width: 400px;
+    padding: 10px; }
+  .nav .barra-opcion {
+    width: 100vw;
+    background-color: #57acb3;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 25px;
+    padding: 0 20px 0 20px; }
+  .nav a:hover {
+    font-size: 30px;
+    font-weight: bold;
+    color: #e2b66a; }
+
+main {
+  background-color: #57acb3; }
+  main #carouselExampleAutoplaying {
+    background-color: white;
+    padding: 30px; }
+  main #nosotros {
+    margin: 40px; }
+
+footer {
+  background-color: white; }
+  footer #contacto {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start; }
+    footer #contacto ul {
+      list-style-type: none; }
+    footer #contacto img {
+      width: 400px; }
+  footer .div-redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; }
+    footer .div-redes .redes {
+      display: flex;
+      flex-direction: column; }
+      footer .div-redes .redes li a {
+        color: #000000;
+        font-size: 1.5rem;
+        padding: 5px; }
+  footer .final {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #57acb3; }
+    footer .final a {
+      font-size: 1.5rem; }

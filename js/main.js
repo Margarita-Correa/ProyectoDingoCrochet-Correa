@@ -44,8 +44,8 @@ function calculoCosto(){
             console.log("Ingrese un numero válido");
         }
         costo += precioUnitario * cantidad;
-        let respuesta = prompt("Para seguir cargando escriba S")
-        if(respuesta !=="s" || respuesta !=="S" ){
+        let respuesta = prompt("Para seguir cargando escriba S");
+        if(respuesta !=="s" && respuesta !=="S" ){
             seguir=false;
         }
     }        

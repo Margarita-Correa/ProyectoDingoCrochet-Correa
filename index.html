@@ -4,70 +4,127 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="./utilities/img/dingo-crochet.jpeg">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <link rel="stylesheet" href="css/style.css">
         <title>Dingo Crochet</title>
     </head>
     <body>
-    <header>
-        <nav>
-            <img src="./utilities/img/dingo-crochet.jpeg">
-            <h1>DINGO CROCHET</h1>
+    <header class="header">
+        <nav class="nav">
+            <div>
+                <img src="./utilities/img/dingo-crochet.jpeg" id="home" alt="logo" width="100">
+            </div>
+            <div class="barra-opcion">
+                <a href="#nosotros">Nosotros</a>
+                <a href="#producto">Productos</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#" class="carrito-compra"><i class="bi bi-cart4" style=" font-size:2rem ;color:black"></i></a>
+            </div>
         </nav>
 
     </header>
     <main>
-
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./utilities/img/modelo.jpeg"  class="d-flex m-auto w-50 " alt="modelo1">
+              </div>
+              <div class="carousel-item">
+                <img src="./utilities/img/modelo2.jpeg" class="d-flex m-auto w-50"  alt="modelo2">
+              </div>
+              <div class="carousel-item">
+                <img src="./utilities/img/modelo3.jpg" class="d-flex m-auto w-50"  alt="modelo3">
+              </div>
+              <div class="carousel-item">
+                <img src="./utilities/img/modelo4.jpg"  class="d-flex m-auto w-50" alt="modelo4">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         <div>
-            <img src="./utilities/img/modelo.jpeg">
-            <img src="./utilities/img/modelo2.jpeg">
-            <img src="./utilities/img/modelo3.jpg">
-            <img src="./utilities/img/modelo4.jpg">
+            <div id="nosotros">
+                <h1>En Dingo Crochet tenemos amigurumis, mantas de apego y otras variedades tejidas a crochet con mucho amor.</h1> 
+                <hr>
+                <h2>Nuestros productos le permiten al bebé tolerar la separación de la mamá con más calma y tranquilizarse ante su ausencia. Los peluches cumplen un papel importante cuando el bebé comienza a dormir solo y ayudan al desarrollo emocional.<br> Preparar, organizar y decorar el cuarto del bebé durante los meses de embarazo es parte del proceso que ayuda a los padres a darle la bienvenida al pequeño de la casa.<br>Te acompañamos en esta etapa: Conocé nuestros productos!</h2>
+            </div>
+
+            <div id="productos">
+            <section id="amigurumi">
+                <h3>Amigurumis</h3>
+                <div>
+                    <img src="./utilities/img/amigurumi/conejita.jpeg">
+                    <img src="./utilities/img/amigurumi/conejitos.jpeg">
+                    <img src="./utilities/img/amigurumi/elefante.jpeg">
+                    <img src="./utilities/img/amigurumi/mapache.jpg">
+                    <img src="./utilities/img/amigurumi/monito.jpg">
+                    <img src="./utilities/img/amigurumi/osito.jpeg">
+                </div>
+            </section>
+            <section id="manta">
+                <h3>Mantas de apego</h3>
+                <div>
+                    <img src="./utilities/img/mantas/manta-coneja.jpg">
+                    <img src="./utilities/img/mantas/manta-elefante.jpg">
+                </div>
+            </section>
+            <section id="sonajero">
+                <h3>Sonajeros</h3>
+                <div>
+                    <img src="./utilities/img/sonajeros/ballena.jpg">
+                    <img src="./utilities/img/sonajeros/sonajero-conejo.jpg">
+                    <img src="./utilities/img/sonajeros/sonajero-perro.jpg">
+                </div>
+            </section id="nombre">
+            <section>
+                <h3>Nombres Tejidos</h3>
+                <div>
+                    <img src="./utilities/img/nombres/nombre.jpg">
+                </div>
+            </section>
+            <section id="llavero">
+                <h3>Llaveros</h3>
+                <div>
+                    <img src="./utilities/img/llaveros/avion.jpg">
+                    <img src="./utilities/img/llaveros/llavero-frida.jpg">
+                    <img src="./utilities/img/llaveros/llavero-hipo-verde.jpg">
+                </div>
+            </section>
         </div>
-        <section>
-            <h2>Amigurumis</h2>
-            <div>
-                <img src="./utilities/img/amigurumi/conejita.jpeg">
-                <img src="./utilities/img/amigurumi/conejitos.jpeg">
-                <img src="./utilities/img/amigurumi/elefante.jpeg">
-                <img src="./utilities/img/amigurumi/mapache.jpg">
-                <img src="./utilities/img/amigurumi/monito.jpg">
-                <img src="./utilities/img/amigurumi/osito.jpeg">
-                <img src="./utilities/img/amigurumi/osito.jpeg">
-            </div>
-        </section>
-        <section>
-            <h2>Mantas de apego</h2>
-            <div>
-                <img src="./utilities/img/mantas/manta-coneja.jpg">
-                <img src="./utilities/img/mantas/manta-elefante.jpg">
-            </div>
-        </section>
-        <section>
-            <h2>Sonajeros</h2>
-            <div>
-                <img src="./utilities/img/sonajeros/ballena.jpg">
-                <img src="./utilities/img/sonajeros/sonajero-conejo.jpg">
-                <img src="./utilities/img/sonajeros/sonajero-perro.jpg">
-            </div>
-        </section>
-        <section>
-            <h2>Nombres Tejidos</h2>
-            <div>
-                <img src="./utilities/img/nombres/nombre.jpg">
-            </div>
-        </section>
-        <section>
-            <h2>Llaveros</h2>
-            <div>
-                <img src="./utilities/img/llaveros/avion.jpg">
-                <img src="./utilities/img/llaveros/llavero-frida.jpg">
-                <img src="./utilities/img/llaveros/llavero-hipo-verde.jpg">
-            </div>
-        </section>
     </main>
-    <footer>
-        <a>2023, Dingo Crochet. Todos los derechos reservados.</a>
+    <footer class="footer">
+        <div id="contacto">
+            <div><a href="#home"><img src="./utilities/img/dingo-crochet.jpeg"  alt="logo"></a></div>
+            <div class="div-redes">
+                <ul class="redes">
+                    <p>Redes Sociales</p>
+                    <li><a href="https://www.instagram.com/dingo.crochet/" target="_blank"><i class="bi bi-instagram" ></i></a></li>
+                    <li><a href="#" target="_blank"><i class="bi bi-facebook"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="bi bi-whatsapp"></i></a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                <li>Dingo Crochet</li>
+                <li><i class="bi bi-gift"></i>Envíos a todo el pais</li>
+                <li><i class="bi bi-credit-card"></i>Todos los medios de pago</li>
+                <li><i class="bi bi-geo-alt-fill"></i>Bs.As, Argentina</li>
+                </ul>
+            </div>
+            <div class="ubicacion">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13129.332949789989!2d-58.60993387796245!3d-34.64628626420336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc78273397ab1%3A0x5093683b11b0c457!2sHaedo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1694052926154!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="final"><i class="bi bi-c-circle"></i><a>2023, Dingo Crochet.  Todos los derechos reservados. Diseño Margarita Correa</a></div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     </body>
 </html>
