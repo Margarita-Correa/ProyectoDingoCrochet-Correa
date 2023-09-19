@@ -1,10 +1,9 @@
-/*Algoritmo
+/*Algoritmo (1ra Entrega)
 Ingrese su nombre
 Calcular costo Total mediante una funcion con parametros: tipo de producto y cantidad
 Repetir hasta que el cliente ya no quiera comprar mas nada
 Mostrar en consola el costo Total
 */
-
 
 //Simulador interactivo:
 
@@ -12,33 +11,41 @@ Mostrar en consola el costo Total
 let nombre = prompt("Ingrese su nombre:");
 alert("Bienvenido/a "+nombre+" a Dingo Crochet!");
 
+const productos = [
+    {id:1, nombre: 'Amigurumi', precio: 3800 },
+    {id:2, nombre: 'Manta de Apego', precio: 5200 },
+    {id:3, nombre:'Sonajero', precio: 2100 },
+    {id:4, nombre:'Nombre Tejido', precio: 3500 },
+    {id:5, nombre:'Llavero', precio: 1700 }
+]
+
+function retornarProductos(){
+    for(const producto of productos){
+        console.log('ID: '+ producto.id);
+        console.log('Nombre: '+producto.nombre);
+        console.log('Precio: '+ producto.precio)
+    }
+}
+console.log(retornarProductos());
+
 
 let precioUnitario = 0;
 let costo = 0;
 
-/*
-Productos:
-1-Amigurumi  
-2-Manta de Apego
-3-Sonajero
-4-Nombre tejido 
-5- Llavero
-*/
-
 function calculoCosto(){
     let seguir = true;
     while(seguir){
-        producto =parseInt(prompt("Ingrese el numero de producto: "));
-        cantidad =parseInt(prompt("Ingrese la cantidad: "));
-        if(producto=="1"){
+        ingreso= parseInt(prompt("Ingrese el id de producto: "));
+        cantidad = parseInt(prompt("Ingrese la cantidad: "));
+        if(ingreso=="1"){
             precioUnitario = 3800 ;
-        }else if(producto=="2"){
+        }else if(ingreso=="2"){
             precioUnitario = 5200;
-        }else if(producto=="3"){
+        }else if(ingreso=="3"){
             precioUnitario = 2100;
-        }else if(producto=="4"){
+        }else if(ingreso=="4"){
             precioUnitario= 3500;
-        }else if(producto=="5"){
+        }else if(ingreso=="5"){
             precioUnitario= 1700;
         }else{
             console.log("Ingrese un numero válido");
@@ -51,5 +58,8 @@ function calculoCosto(){
     }        
     console.log("El costo total es: "+ costo);
 }
+console.log(calculoCosto());
 
 
+const carrito = [];
+console.log('Su carrito de compra contiene los siguientes productos: ' );
