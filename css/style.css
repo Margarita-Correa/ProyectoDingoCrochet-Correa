@@ -10,8 +10,9 @@ h1 {
 h2 {
   text-align: center; }
 
-img {
-  width: 50px; }
+h3 {
+  color: #000000;
+  text-align: center; }
 
 .nav {
   display: flex;
@@ -45,6 +46,19 @@ main {
     padding: 30px; }
   main #nosotros {
     margin: 40px; }
+  main #carrito {
+    margin: 30px;
+    padding: 50px;
+    background-color: #e2b66a; }
+    main #carrito p {
+      text-align: center; }
+  main #productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 50px; }
 
 footer {
   background-color: white; }
