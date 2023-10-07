@@ -50,8 +50,11 @@ main {
     margin: 30px;
     padding: 50px;
     background-color: #e2b66a; }
-    main #carrito p {
-      text-align: center; }
+    main #carrito .visible {
+      display: flex;
+      justify-content: center; }
+    main #carrito .oculto {
+      display: none; }
   main #productos {
     display: flex;
     flex-direction: column;
@@ -59,6 +62,11 @@ main {
     justify-content: center;
     margin: 10px;
     padding: 50px; }
+    main #productos div .card {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: end; }
 
 footer {
   background-color: white; }

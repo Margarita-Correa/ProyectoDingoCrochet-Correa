@@ -2,9 +2,19 @@ const carritoDeCompras = [];
 
 
 //Evento del Carrito de compras
-const comprar = document.getElementById("comprar");
+let comprar = document.getElementsByClassName("comprar");
+
+
+let mensaje = document.getElementById("mensaje");
+const mostrarMensaje = ()=>{
+    if(carritoDeCompras.length === 0){
+        mensaje.className = "visible";
+    }else{mensaje.className ="oculto";}
+}
+
 
 comprar.addEventListener('click', agregarAlCarrito =>{
+    mostrarMensaje();
     carritoDeCompras.push({}); //aca se deberia agregar el producto correspondiente al array carritoDeCompras
 });
 
@@ -18,49 +28,21 @@ const carritoStorage = (clave,valor) => {localStorage.setItem(clave,valor)};
 
 
 //Mostrar productos seleccionados
-/* referencia a la seccion donde se mostrarán los productos:*/
-let productosSeleccionados = document.getElementById("productosSeleccionados");
 
 /*Obtener carrito de productos seleccionados */
 let carritoFinal = JSON.stringify(localStorage.getItem('carrito'));
-   
 
+/* referencia a la seccion donde se mostrarán los productos:*/
+let productosSeleccionados = document.getElementById("productosSeleccionados")
 
-
-/*
-let precioUnitario = 0;
-let costo = 0;
-
-function calculoCosto(){
-    let seguir = true;
-    while(seguir){
-        ingreso= parseInt(prompt("Ingrese el id de producto: "));
-        cantidad = parseInt(prompt("Ingrese la cantidad: "));
-        if(ingreso=="1"){
-            precioUnitario = 3800 ;
-        }else if(ingreso=="2"){
-            precioUnitario = 5200;
-        }else if(ingreso=="3"){
-            precioUnitario = 2100;
-        }else if(ingreso=="4"){
-            precioUnitario= 3500;
-        }else if(ingreso=="5"){
-            precioUnitario= 1700;
-        }else{
-            console.log("Ingrese un numero válido");
-        }
-        costo += precioUnitario * cantidad;
-        let respuesta = prompt("Para seguir cargando escriba S");
-        if(respuesta !=="s" && respuesta !=="S" ){
-            seguir=false;
-        }
-    }        
-    console.log("El costo total es: "+ costo);
+const mostrarProductosCarrito = ()=>{
+    for(const carrito of carritoFinal){
+        let productoCarrito = document.createElement("div");
+        productoCarrito.innerHTML = `<p>
+          Tipo: ${carrito.tipo} 
+          Producto: ${carrito.nombre}  
+          Precio: ${carrito.precio}</p>`;
+        document.productosSeleccionados.append(productoCarrito);
+    }
 }
-console.log(calculoCosto());
 
-
-
-console.log('Su carrito de compra contiene los siguientes productos: ' );
-
-*/

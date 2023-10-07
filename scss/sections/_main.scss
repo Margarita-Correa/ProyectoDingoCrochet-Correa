@@ -1,6 +1,7 @@
 main{
     background-color: #57acb3;
 
+
     #carouselExampleAutoplaying{
     background-color:white;
     padding: 30px;
@@ -14,9 +15,8 @@ main{
         margin: 30px;
         padding: 50px;
         background-color: #e2b66a;
-        p{
-            text-align: center;
-        }
+        .visible{display:flex; justify-content: center;}
+        .oculto{display: none;}
     }
     #productos{
         display: flex;
@@ -25,6 +25,11 @@ main{
         justify-content: center;
         margin: 10px;
         padding: 50px;
-
+        div .card{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: end;
+        }
     }
 }
