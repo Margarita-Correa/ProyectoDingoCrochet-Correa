@@ -48,155 +48,29 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>
-        <div>
-            <div id="nosotros">
+        </div>
+
+        <div id="nosotros">
                 <h1>En Dingo Crochet tenemos amigurumis, mantas de apego y otras variedades tejidas a crochet con mucho amor.</h1> 
                 <hr>
                 <h2>Nuestros productos le permiten al bebé tolerar la separación de la mamá con más calma y tranquilizarse ante su ausencia. Los peluches cumplen un papel importante cuando el bebé comienza a dormir solo y ayudan al desarrollo emocional.<br> Preparar, organizar y decorar el cuarto del bebé durante los meses de embarazo es parte del proceso que ayuda a los padres a darle la bienvenida al pequeño/a del hogar.<br>Te acompañamos en esta etapa: Conocé nuestros productos!</h2>
-            </div>
-        <section id="carrito">
-            <h3>Carrito</h3>
-            <p id="mensaje" class="visible" >Tu carrito está vacio</p>
-            <div id="productosSeleccionados">
+        </div>
 
-            </div>
-        </section>
-        <section id="productos">
-            <h3>Amigurumis</h3>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-self-stretch">
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/amigurumi/conejita.jpeg" class="card-img-top" alt="coneja">
-                    <div class="card-body">
-                    <h5 class="amigurumi">Coneja</h5>
-                    <p>$3800</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-                <div class="card " style="width: 18rem;">
-                   <img src="./utilities/img/amigurumi/elefante.jpeg" class="card-img-top" alt="elefante">
-                    <div class="card-body">
-                    <h5 class="amigurumi">Elefante</h5>
-                    <p>$3800</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/amigurumi/osito.jpeg" class="card-img-top " alt="osito">
-                    <div class="card-body">
-                    <h5 class="amigurumi">Osito</h5>
-                    <p>$3800</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>  
-                <div class="card align-content-end" style="width: 18rem;">
-                    <img src="./utilities/img/amigurumi/mapache.jpg" class="card-img-top " alt="mapache">
-                    <div class="card-body">
-                    <h5 class="amigurumi">Mapache</h5>
-                    <p>$3800</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-                <div class="card align-content-end" style="width: 18rem;">
-                    <img src="./utilities/img/amigurumi/monito.jpg" class="card-img-top" alt="monito">
-                    <div class="card-body">
-                    <h5 class="amigurumi">Monito</h5>
-                    <p>$3800</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-            </div>
+        <div id="div-carrito" class="d-flex flex-wrap flex-column">
+            <h2>Carrito</h2>
+            <p id="mensaje" class="visible"></p>
+            <ul id="carrito"></ul>
+            <p>Total: $<span id="total"></span></p>
+            <button id="vaciar" class="btn btn-danger">Vaciar Carrito</button>
+        </div>
 
-            <h3>Mantas de apego</h3>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-self-stretch">
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/mantas/manta-coneja.jpg" class="card-img-top" alt="manta-coneja">
-                    <div class="card-body">
-                    <h5 class="manta">Manta Coneja</h5>
-                    <p>$5200</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-                <div class="card align-content-end" style="width: 18rem;">
-                    <img src="./utilities/img/mantas/manta-elefante.jpg" class="card-img-top" alt="elefante">
-                    <div class="card-body">
-                    <h5 class="manta">Manta Elefante</h5>
-                    <p>$5200</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-            </div>
+        <h2>Productos</h2>
+        <div id="productos" >
 
-            <h3>Sonajeros</h3>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-self-stretch">
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/sonajeros/sonajero-conejo.jpg" class="card-img-top" alt="conejo">
-                    <div class="card-body">
-                    <h5 class="sonajero">Sonajero Conejo</h5>
-                    <p>$2100</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/sonajeros/ballena.jpg" class="card-img-top" alt="ballena">
-                    <div class="card-body">
-                    <h5 class="sonajero">Sonajero Ballena</h5>
-                    <p>$2100</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-                <div class="card align-content-end" style="width: 18rem;">
-                    <img src="./utilities/img/sonajeros/sonajero-perro.jpg" class="card-img-top" alt="perro">
-                    <div class="card-body">
-                    <h5 class="sonajero">Sonajero Perro</h5>
-                    <p>$2100</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-            </div>
-
-           <h3>Nombres Tejidos</h3>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-self-stretch">
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/nombres/nombre.jpg" class="card-img-top" alt="nombre-tejido">
-                    <div class="card-body">
-                    <h5 class="nombre">Nombre Tejido Personalizado</h5>
-                    <p>$3500</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div> 
-                </div>  
-            </div>
-
-            <h3>Llaveros</h3>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-self-stretch">
-                <div class="card align-content-end" style="width: 18rem;">
-                    <img src="./utilities/img/llaveros/avion.jpg" class="card-img-top" alt="llavero-avion">
-                    <div class="card-body">
-                    <h5 class="nombre">Llavero Avion</h5>
-                    <p>$1700</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-                <div class="card " style="width: 18rem;">
-                    <img src="./utilities/img/llaveros/llavero-frida.jpg" class="card-img-top" alt="llavero-frida">
-                    <div class="card-body">
-                    <h5 class="llavero">Llavero Frida</h5>
-                    <p>$1700</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>
-                <div class="card align-content-end" style="width: 18rem;">
-                    <img src="./utilities/img/llaveros/llavero-hipo-verde.jpg" class="card-img-top" alt="llavero-hipo-verde">
-                    <div class="card-body">
-                    <h5 class="llavero">Llavero Caballito de Mar</h5>
-                    <p>$1700</p>
-                    <button class="comprar" class="comprar btn btn-primary">Comprar</button>
-                    </div>
-                </div>   
-            </div>
-        </section>
+        </div>
 
     </main>
+
     <footer class="footer">
         <div id="contacto">
             <div><a href="#home"><img src="./utilities/img/dingo-crochet.jpeg"  alt="logo"></a></div>
@@ -223,7 +97,7 @@
         <div class="final"><i class="bi bi-c-circle"></i><a>2023, Dingo Crochet.  Todos los derechos reservados.</a></div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="js/classProducts.js"></script>
+    <script src="js/datos.js"></script>
     <script src="js/main.js"></script>
     </body>
 </html>

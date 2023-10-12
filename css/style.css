@@ -24,7 +24,7 @@ h3 {
     width: 400px;
     padding: 10px; }
   .nav .barra-opcion {
-    width: 100vw;
+    width: 100%;
     background-color: #57acb3;
     display: flex;
     justify-content: center;
@@ -46,20 +46,22 @@ main {
     padding: 30px; }
   main #nosotros {
     margin: 40px; }
-  main #carrito {
-    margin: 30px;
-    padding: 50px;
+  main #div-carrito {
+    margin: 20px;
+    padding: 10px;
+    align-items: center;
     background-color: #e2b66a; }
-    main #carrito .visible {
+    main #div-carrito .visible {
       display: flex;
       justify-content: center; }
-    main #carrito .oculto {
+    main #div-carrito .oculto {
       display: none; }
   main #productos {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     margin: 10px;
     padding: 50px; }
     main #productos div .card {

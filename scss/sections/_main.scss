@@ -11,18 +11,20 @@ main{
     #nosotros{
         margin:40px;
     }
-    #carrito{
-        margin: 30px;
-        padding: 50px;
+    #div-carrito{
+        margin:20px;
+        padding: 10px;
+        align-items: center;
         background-color: #e2b66a;
         .visible{display:flex; justify-content: center;}
         .oculto{display: none;}
     }
     #productos{
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         margin: 10px;
         padding: 50px;
         div .card{
