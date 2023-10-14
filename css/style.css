@@ -49,6 +49,7 @@ main {
   main #div-carrito {
     margin: 20px;
     padding: 10px;
+    border-radius: 30px;
     align-items: center;
     background-color: #e2b66a; }
     main #div-carrito .visible {
@@ -56,19 +57,24 @@ main {
       justify-content: center; }
     main #div-carrito .oculto {
       display: none; }
+    main #div-carrito li {
+      padding: 3px; }
+    main #div-carrito button {
+      margin: 5px; }
   main #productos {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: start;
     margin: 10px;
     padding: 50px; }
-    main #productos div .card {
+    main #productos div .card-body {
       display: flex;
       flex-wrap: wrap;
-      flex-direction: row;
-      align-items: end; }
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center; }
 
 footer {
   background-color: white; }

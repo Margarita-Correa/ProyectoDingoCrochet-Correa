@@ -1,9 +1,11 @@
 let carritoDeCompras = [];
 
+
 let itemProductos = document.getElementById("productos");
 let carrito = document.getElementById("carrito");
-let total = document.getElementById("total");
+//let total = document.getElementById("total");
 let vaciar = document.getElementById("vaciar");
+
 
 
 //Funciones
@@ -11,8 +13,8 @@ let vaciar = document.getElementById("vaciar");
 function renderizarProductos(){
     productos.forEach((producto)=>{
         //Cuerpo del card nuevo Producto
-        const nuevoDiv = document.createElement('div');
-        nuevoDiv.classList.add('card','col-sm-4');
+        const card= document.createElement('div');
+        card.classList.add('card','col-sm-2');
         const cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
@@ -45,85 +47,88 @@ function renderizarProductos(){
         cardBody.appendChild(imagen);
         cardBody.appendChild(precio);
         cardBody.appendChild(agregar);
-        nuevoDiv.appendChild(cardBody);
+        card.appendChild(cardBody);
 
         //Agregamos al nodo padre 
-        itemProductos.appendChild(nuevoDiv);
-
-
+        itemProductos.appendChild(card);
     });
 }
 
 
-
 //Evento del Carrito de compras
 function agregarAlCarrito (e){
-    carritoDeCompras.push(e.target.getAttribute('marcador'));
+    const marcador = e.target.getAttribute('marcador');
+    const productoSeleccionado = productos.find((producto)=> producto.id == marcador);
+    carritoDeCompras.push(productoSeleccionado);
     renderizarCarrito();
 };
 
 
+//Carrito en Storage
+const carritoEnStorage = (clave, valor) => { sessionStorage.setItem(clave, valor) };
+
 
 //Dibuja en la pantalla los productos guardados en el carrito
-
 function renderizarCarrito(){
-    carrito.textContent = '';
-    const productoUnico = [...new Set (carritoDeCompras)];
+    carrito.textContent= '';
+
     //Genera los nodos a partir del carrito
-    productoUnico.forEach((item) => {
-        //obtiene el item que necesita de los datos de  productos
-        const itemCarrito = productos.filter((itemProductos) => {
-            return itemProductos.id === parseInt(item);
-        }); 
-    
+    carritoDeCompras.forEach((item)=>{
+
     //Nodo del item del producto
     const nuevoItem = document.createElement('li');
     nuevoItem.classList.add('text-right','mx-2');
-    nuevoItem.textContent = `Producto Seleccionado: ${itemCarrito[0].nombre} - Precio: ${itemCarrito[0].precio}`;
+    nuevoItem.setAttribute('marcador', item.id);
+    nuevoItem.textContent = `Producto Seleccionado: ${item.nombre} - Precio: $ ${item.precio}`;
 
     //Boton eliminar un item del carrito
     const botonEliminar = document.createElement('button');
     botonEliminar.classList.add('btn','btn-danger');
+    botonEliminar.setAttribute('marcador', item.id);
     botonEliminar.textContent ='Eliminar';
     botonEliminar.addEventListener('click', eliminarItemCarrito);
 
     nuevoItem.appendChild(botonEliminar);
     carrito.appendChild(nuevoItem);
-    });
 
-    total.textContent = calcularTotal();
+    //Guardar en el Storage cada vez que agrego un producto al Carrito de Compras
+    carritoEnStorage(item.id, JSON.stringify(item));
+    });
+    calcularTotal();
+};
+
+
+
+//Calcular el precio Total del carrito
+function calcularTotal() {
+    const preciosCarrito = carritoDeCompras.map ((carrito)=> carrito.precio );
+    document.getElementById("total").innerHTML = preciosCarrito.reduce((acumulador, precio) => acumulador + precio,0 );
 }
 
 
 //Evento para Eliminar un item del carrito
 function eliminarItemCarrito(e) {
     // Obtener el producto ID que hay en el boton pulsado
-
+    const marcadorLista = e.target.getAttribute('marcador');
+    carritoDeCompras.splice((item)=> item.id == marcadorLista,1);
 
     //se vuelve a renderizar
     renderizarCarrito();
 }
 
 
-
-//Calcular el precio Total del carrito
-
-function calcularTotal() {
-    let total = 0;
- //continuar
-    return total += producto.precio;
-}
-
-
-
 //Vaciar todo el carrito completo 
 function vaciarCarrito(){
-    carrito = [];
+    carritoDeCompras = [];
+    sessionStorage.clear();
     renderizarCarrito();
 };
 
+//Traer el carrito de Compras del Storage
+const carritoFinal = JSON.parse(sessionStorage.getItem('Carrito')) || [];
 
-//Evento
+
+//Evento vaciar carrito
 vaciar.addEventListener('click', vaciarCarrito);
 
 

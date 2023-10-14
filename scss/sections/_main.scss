@@ -14,24 +14,30 @@ main{
     #div-carrito{
         margin:20px;
         padding: 10px;
+        border-radius: 30px;
         align-items: center;
         background-color: #e2b66a;
         .visible{display:flex; justify-content: center;}
         .oculto{display: none;}
+            li{
+                padding: 3px;
+            }
+            button{ margin:5px;}
     }
     #productos{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
         justify-content: start;
         margin: 10px;
         padding: 50px;
-        div .card{
+        div .card-body{
             display: flex;
             flex-wrap: wrap;
-            flex-direction: row;
-            align-items: end;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
     }
 }
