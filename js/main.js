@@ -140,7 +140,6 @@ botonEliminar.addEventListener('click', ()=>
 
 
 
-
 //Calcular el precio Total del carrito
 function calcularTotal() {
     const preciosCarrito = carritoDeCompras.map ((carrito)=> carrito.precio );
@@ -151,13 +150,69 @@ function calcularTotal() {
 
 //Vaciar todo el carrito completo 
 function vaciarCarrito(){
-    carritoDeCompras = [];
-    sessionStorage.clear();
-    renderizarCarrito();
+    if(carritoDeCompras.length == 0){
+        Swal.fire({
+            title: 'No tienes productos en tu carrito',
+            icon: 'warning',
+            showCancelButton: false
+    })}else{
+        Swal.fire({
+            title: '¿Vaciar Carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Carrito Vacío',
+                    icon:'success',
+                    showConfirmButton: false,
+                    timer:1000,
+                });
+                carritoDeCompras = [];
+                sessionStorage.clear();
+                renderizarCarrito();
+            };
+        });
+    };
 };
 
 //Traer el carrito de Compras del Storage
 const carritoFinal = JSON.parse(sessionStorage.getItem('Carrito')) || [];
+
+
+//Evento Comprar productos
+comprar.addEventListener('click', ()=> {
+    if(carritoDeCompras.length == 0){
+        Swal.fire({
+            title: 'Tu carrito está vacio',
+            text:'Selecciona alguno de nuestros productos',
+            icon: 'warning',
+            showCancelButton: false,
+            showConfirmButton:false
+        });
+    }else{
+        Swal.fire({
+            title: '¿Quieres confirmar tu compra?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Confirmar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Gracias por confirmar tu compra!',
+                    icon:'success',
+                    showConfirmButton: false,
+                    timer:1000,
+                });
+            };
+        });
+    }
+});
 
 
 //Evento vaciar carrito
@@ -169,11 +224,3 @@ vaciar.addEventListener('click', vaciarCarrito);
  renderizarCarrito();
 
 
-/*
-let mensaje = document.getElementById("mensaje");
-const mostrarMensaje = ()=>{
-    if(carritoDeCompras.length === 0){
-        mensaje.className = "visible";
-    }else{mensaje.className ="oculto";}
-}
-*/
