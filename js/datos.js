@@ -56,7 +56,3 @@ const productos = [
         imagen: './utilities/img/sonajeros/sonajero-conejo.jpg'
     }
 ];
-
-
-
-
