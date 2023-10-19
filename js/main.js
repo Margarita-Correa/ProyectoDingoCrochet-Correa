@@ -1,63 +1,51 @@
 let carritoDeCompras = [];
 
 
-let itemProductos = document.getElementById("productos");
 let carrito = document.getElementById("carrito");
 let vaciar = document.getElementById("vaciar");
 let comprar = document.getElementById("comprar");
-
-
+        
 
 //Funciones
+async function renderizarProductos(){
+    try{
+        let divProductos = document.getElementById("productos");
+        divProductos.innerHTML = "Cargando productos disponibles...";
 
-function renderizarProductos(){
-    productos.forEach((producto)=>{
-        //Cuerpo del card nuevo Producto
-        const card= document.createElement('div');
-        card.classList.add('card','col-sm-2');
-        const cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
+        await new Promise((resolve)=> setTimeout(resolve, 5000));
 
-        //Titulo
-        const titulo = document.createElement('h4');
-        titulo.classList.add('card-title');
-        titulo.textContent = producto.nombre;
-        //Tipo
-        const tipo = document.createElement('h5');
-        tipo.textContent = producto.tipo;
-        //Imagen
-        const imagen = document.createElement('img');
-        imagen.classList.add('img-fluid');
-        imagen.setAttribute('src', producto.imagen);
-        //Precio
-        const precio = document.createElement('p');
-        precio.classList.add('card-text');
-        precio.textContent = `$ ${producto.precio}`;
+        const response = await fetch("./data.json");
+        if (!response.ok) {
+          throw new Error("No se pudo obtener la información");
+        }    
 
-        //Boton agregar al carrito el producto
-        const agregar = document.createElement('button');
-        agregar.classList.add('btn', 'btn-primary');
-        agregar.textContent = 'Agregar al Carrito';
-        agregar.setAttribute('marcador', producto.id);
-        agregar.addEventListener('click', agregarAlCarrito);
+        const productos = await response.json();
 
+        divProductos.innerHTML = "";
 
-        //Agregamos cada valor del objeto producto a su card correspondiente
-        cardBody.appendChild(titulo);
-        cardBody.appendChild(tipo);
-        cardBody.appendChild(imagen);
-        cardBody.appendChild(precio);
-        cardBody.appendChild(agregar);
-        card.appendChild(cardBody);
+        productos.forEach((producto)=>{             
+            const cardProducto = generarCardProducto(producto);
 
-        //Agregamos al nodo padre 
-        itemProductos.appendChild(card);
-    });
-}
+            const card = document.createElement("div");
+            card.classList.add('card' ,'col-sm-2');
+            card.innerHTML = cardProducto;
 
+            //Agregamos al nodo padre 
+            divProductos.appendChild(card);
 
-//Evento del Carrito de compras
-function agregarAlCarrito (e){
+        })
+        
+        //Productos en Storage
+        const productosEnStorage = (clave, valor) => { localStorage.setItem(clave, valor) };
+        productosEnStorage(productos.id, JSON.stringify(productos));
+        
+        //Referencia al botón agregar Producto al Carrito
+        let agregar = document.getElementsByClassName("agregar");
+        for(let index = 0 ; index < productos.length ; index++){
+
+        //Evento del Carrito de compras cada vez que se hace click sobre el boton 'agregar al Carrito' 
+        agregar[index].onclick = (e)=>{
+                    
         const marcador = e.target.getAttribute('marcador');
         const productoSeleccionado = productos.find((producto)=> producto.id == marcador);
         carritoDeCompras.push(productoSeleccionado);
@@ -69,7 +57,31 @@ function agregarAlCarrito (e){
             timer: 1000
           })
         renderizarCarrito();
+        }};
+    
+    
+    }catch (error){
+        console.error("Error:", error);
+    };
 };
+
+
+window.addEventListener("load", renderizarCarrito);
+
+
+function generarCardProducto(producto){ 
+    return `
+            <div class = "card-body">
+                <h4 class="card-title">${producto.nombre}</h4>
+                <h5>${producto.tipo}</h5>
+                <img class="img-fluid" src="${producto.imagen}"></img>
+                <p class="card-text">$ ${producto.precio}</p>
+                <button class="btn btn-primary agregar" marcador="${producto.id}">Agregar al Carrito</button>
+            </div>
+    `
+}
+
+
 
 //Carrito en Storage
 const carritoEnStorage = (clave, valor) => { sessionStorage.setItem(clave, valor) };
@@ -114,7 +126,8 @@ botonEliminar.addEventListener('click', ()=>
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, Eliminar'
+        confirmButtonText: 'Eliminar',
+        cancelButtonText:'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
         Swal.fire({
@@ -154,7 +167,9 @@ function vaciarCarrito(){
         Swal.fire({
             title: 'No tienes productos en tu carrito',
             icon: 'warning',
-            showCancelButton: false
+            showCancelButton: false,
+            showConfirmButton:false,
+            timer: 1000
     })}else{
         Swal.fire({
             title: '¿Vaciar Carrito?',
@@ -191,7 +206,8 @@ comprar.addEventListener('click', ()=> {
             text:'Selecciona alguno de nuestros productos',
             icon: 'warning',
             showCancelButton: false,
-            showConfirmButton:false
+            showConfirmButton:false,
+            timer: 1000
         });
     }else{
         Swal.fire({
@@ -200,7 +216,8 @@ comprar.addEventListener('click', ()=> {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, Confirmar'
+            confirmButtonText: 'Confirmar',
+            cancelButtonText:'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
@@ -209,6 +226,9 @@ comprar.addEventListener('click', ()=> {
                     showConfirmButton: false,
                     timer:1000,
                 });
+            carritoDeCompras = [];
+            sessionStorage.clear();
+            renderizarCarrito();
             };
         });
     }
@@ -220,7 +240,5 @@ vaciar.addEventListener('click', vaciarCarrito);
 
 
 //Llamado de funciones
- renderizarProductos();
- renderizarCarrito();
-
-
+renderizarCarrito();
+renderizarProductos();
